@@ -129,55 +129,20 @@ body {
     overflow: hidden;
 }
 
-.hero-shapes {
+/* Hero Background Image */
+.hero {
+    background: url('hero-bg.png') center center / cover no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
     position: absolute;
     inset: 0;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.92) 0%,
+            rgba(255, 255, 255, 0.85) 50%,
+            rgba(255, 255, 255, 0.95) 100%);
     pointer-events: none;
-}
-
-.shape {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.6;
-}
-
-.shape-1 {
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(135deg, rgba(255, 237, 0, 0.3) 0%, transparent 70%);
-    top: -100px;
-    right: -100px;
-    animation: float 8s ease-in-out infinite;
-}
-
-.shape-2 {
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(135deg, rgba(229, 0, 125, 0.15) 0%, transparent 70%);
-    bottom: -50px;
-    left: -50px;
-    animation: float 10s ease-in-out infinite reverse;
-}
-
-.shape-3 {
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, rgba(0, 158, 224, 0.2) 0%, transparent 70%);
-    top: 50%;
-    left: 60%;
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(5deg);
-    }
 }
 
 .hero-content {
