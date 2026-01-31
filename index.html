@@ -93,6 +93,13 @@
                     <span class="stat-label">Region</span>
                 </div>
             </div>
+            <a href="#buergerbrief-form" class="hero-cta fade-in delay-3">
+                <span>Jetzt Nachricht senden</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+            </a>
         </div>
     </section>
 
@@ -181,6 +188,14 @@
                         <span class="btn-text">Nachricht absenden</span>
                         <span class="btn-icon">→</span>
                     </button>
+                    <div class="trust-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span>Sichere Übermittlung • DSGVO-konform</span>
+                    </div>
                 </form>
             </div>
 
@@ -329,6 +344,14 @@
             <p>© 2026 Bürgerbrief Rhein-Erft</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Zurück nach oben">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+    </button>
 
     <!-- Success Message Overlay -->
     <div id="successOverlay" class="success-overlay hidden">
@@ -640,6 +663,131 @@
         }, observerOptions);
 
         document.querySelectorAll('.fade-in, .fade-in-up, .hero-stats').forEach(el => observer.observe(el));
+
+        // ========================================
+        // Back to Top Button
+        // ========================================
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ========================================
+        // Smooth Scroll for CTA
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ========================================
+        // Form Auto-Save (LocalStorage)
+        // ========================================
+        const formFields = ['name', 'email', 'ort', 'thema', 'nachricht'];
+        const STORAGE_KEY = 'buergerbrief_draft';
+
+        function saveFormData() {
+            const data = {};
+            formFields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) data[id] = el.value;
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        }
+
+        function loadFormData() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    formFields.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el && data[id]) {
+                            el.value = data[id];
+                            if (id === 'nachricht') {
+                                charCount.textContent = data[id].length;
+                            }
+                        }
+                    });
+                    showToast('info', 'Entwurf geladen', 'Ihre vorherigen Eingaben wurden wiederhergestellt.');
+                } catch (e) { /* ignore parse errors */ }
+            }
+        }
+
+        function clearFormData() {
+            localStorage.removeItem(STORAGE_KEY);
+        }
+
+        // Load saved data on page load
+        loadFormData();
+
+        // Save on input
+        formFields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', saveFormData);
+        });
+
+        // Clear on successful submit (modify existing handler)
+        const originalSubmit = form.onsubmit;
+        form.addEventListener('submit', () => {
+            setTimeout(() => {
+                if (document.getElementById('successOverlay').classList.contains('hidden') === false) {
+                    clearFormData();
+                }
+            }, 500);
+        });
+
+        // ========================================
+        // Live Form Validation
+        // ========================================
+        const emailInput = document.getElementById('email');
+        const nachrichtInput = document.getElementById('nachricht');
+
+        function validateEmail(email) {
+            if (!email) return true; // optional field
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function setFieldState(el, isValid) {
+            el.classList.remove('valid', 'invalid');
+            if (el.value.length > 0) {
+                el.classList.add(isValid ? 'valid' : 'invalid');
+            }
+        }
+
+        emailInput.addEventListener('blur', () => {
+            setFieldState(emailInput, validateEmail(emailInput.value));
+        });
+
+        nachrichtInput.addEventListener('input', () => {
+            const len = nachrichtInput.value.length;
+            charCount.textContent = len;
+
+            // Show warning if too short
+            if (len > 0 && len < 20) {
+                nachrichtInput.classList.add('warning');
+                nachrichtInput.classList.remove('valid');
+            } else if (len >= 20) {
+                nachrichtInput.classList.remove('warning');
+                nachrichtInput.classList.add('valid');
+            } else {
+                nachrichtInput.classList.remove('warning', 'valid');
+            }
+        });
     </script>
 </body>
 
