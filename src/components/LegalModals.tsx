@@ -52,22 +52,21 @@ export default function LegalModals({ activeModal, onClose }: LegalModalsProps) 
                             <h3 className="text-lg font-bold text-rek-magenta mt-0 mb-3">Angaben gemäß § 5 TMG</h3>
                             <p className="mb-6">
                                 Alexander Rheindorf<br />
-                                Willy-Brandt-Platz 1<br />
-                                50126 Bergheim<br />
+                                Pankratiusstraße 31<br />
+                                50129 Bergheim<br />
                                 Deutschland
                             </p>
 
                             <h3 className="text-lg font-bold text-rek-magenta mb-3">Kontakt</h3>
                             <p className="mb-6">
-                                E-Mail: kontakt@alexander-rheindorf.de<br />
-                                Telefon: +49 (0) 2271 83-0
+                                E-Mail: alexander.rheindorf@fdp-rek.de
                             </p>
 
                             <h3 className="text-lg font-bold text-rek-magenta mb-3">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
                             <p className="mb-6">
                                 Alexander Rheindorf<br />
-                                Willy-Brandt-Platz 1<br />
-                                50126 Bergheim
+                                Pankratiusstraße 31<br />
+                                50129 Bergheim
                             </p>
 
                             <h3 className="text-lg font-bold text-rek-magenta mb-3">Haftungsausschluss</h3>
@@ -104,9 +103,9 @@ export default function LegalModals({ activeModal, onClose }: LegalModalsProps) 
                             <h3 className="text-lg font-bold text-rek-magenta mt-0 mb-3">1. Verantwortlicher</h3>
                             <p className="mb-6">
                                 Alexander Rheindorf<br />
-                                Willy-Brandt-Platz 1<br />
-                                50126 Bergheim<br />
-                                E-Mail: kontakt@alexander-rheindorf.de
+                                Pankratiusstraße 31<br />
+                                50129 Bergheim<br />
+                                E-Mail: alexander.rheindorf@fdp-rek.de
                             </p>
 
                             <h3 className="text-lg font-bold text-rek-magenta mb-3">2. Erhebung und Verarbeitung personenbezogener Daten</h3>
@@ -159,7 +158,7 @@ export default function LegalModals({ activeModal, onClose }: LegalModalsProps) 
                             <h3 className="text-lg font-bold text-rek-magenta mb-3">6. Kontakt</h3>
                             <p className="mb-6">
                                 Bei Fragen zum Datenschutz wenden Sie sich an:<br />
-                                kontakt@alexander-rheindorf.de
+                                alexander.rheindorf@fdp-rek.de
                             </p>
 
                             <p className="text-sm text-gray-500 italic mt-8">Stand: Februar 2026</p>

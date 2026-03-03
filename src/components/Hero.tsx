@@ -29,17 +29,17 @@ export default function Hero() {
             Gestalte deine Heimat aktiv mit. Schreibe deinen Bürgerbrief direkt an mich und bringe deine Themen voran.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
             <a
               href="#buergerbrief"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full text-white bg-rek-magenta hover:bg-[#c4006a] transition-all shadow-lg hover:shadow-rek-magenta/30"
+              className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 text-lg font-semibold rounded-full text-white bg-rek-magenta hover:bg-[#c4006a] transition-all shadow-lg hover:shadow-rek-magenta/30"
             >
               Bürgerbrief verfassen
               <ArrowRight className="ml-2 w-5 h-5" />
             </a>
             <a
               href="#ansprechpartner"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 transition-all"
+              className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 text-lg font-semibold rounded-full text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 transition-all"
             >
               Über Alexander Rheindorf
             </a>

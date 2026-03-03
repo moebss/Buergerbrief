@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -40,23 +40,19 @@ export default function Contact() {
             <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
               Alexander Rheindorf
             </h3>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Als engagierter Kommunalpolitiker im Rhein-Erft-Kreis setze ich mich für Ihre Belange ein. Ob Infrastruktur, Bildung oder Umweltschutz – Ihre Themen sind mein Antrieb.
-            </p>
+            <div className="text-xl text-gray-600 mb-8 leading-relaxed space-y-4">
+              <p>
+                Als engagierter Kommunalpolitiker im Rhein-Erft-Kreis setze ich mich für Ihre Belange ein. Ob Infrastruktur, Bildung, Digitalisierung oder Umweltschutz – Ihre Themen sind mein Antrieb.
+              </p>
+              <p>
+                Ich bin fest davon überzeugt, dass positive Veränderungen durch einen direkten und konstruktiven Dialog entstehen. Die Weiterentwicklung unserer Region und die Schaffung von zukunftssicheren Rahmenbedingungen für Bürger und Unternehmen liegen mir besonders am Herzen.
+              </p>
+              <p>
+                Lassen Sie uns gemeinsam an einer starken Zukunft für den Rhein-Erft-Kreis arbeiten. Ich freue mich auf Ihre Ideen, Anregungen und den persönlichen Austausch!
+              </p>
+            </div>
 
             <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-50 text-yellow-600">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-lg font-semibold text-gray-900">Büro Rhein-Erft-Kreis</h4>
-                  <p className="mt-1 text-gray-600">Willy-Brandt-Platz 1<br />50126 Bergheim</p>
-                </div>
-              </div>
-
               <div className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-pink-50 text-rek-magenta">
@@ -65,19 +61,9 @@ export default function Contact() {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-semibold text-gray-900">E-Mail</h4>
-                  <p className="mt-1 text-gray-600">kontakt@alexander-rheindorf.de</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 text-gray-600">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-lg font-semibold text-gray-900">Telefon</h4>
-                  <p className="mt-1 text-gray-600">+49 (0) 2271 83-0</p>
+                  <a href="mailto:alexander.rheindorf@fdp-rek.de" className="mt-1 text-gray-600 hover:text-rek-magenta transition-colors">
+                    alexander.rheindorf@fdp-rek.de
+                  </a>
                 </div>
               </div>
             </div>

@@ -98,7 +98,7 @@ base: '/___REPO_NAME___/',
 + <h4>Büro ___KOMMUNE___</h4>
 + <p>___STRASSE___<br/>___PLZ_ORT___</p>
 
-- kontakt@alexander-rheindorf.de
+- alexander.rheindorf@fdp-rek.de
 + ___EMAIL___
 
 - +49 (0) 2271 83-0
@@ -129,7 +129,7 @@ base: '/___REPO_NAME___/',
 + ___STRASSE___
 + ___PLZ_ORT___
 
-- kontakt@alexander-rheindorf.de
+- alexander.rheindorf@fdp-rek.de
 + ___EMAIL___
 
 - +49 (0) 2271 83-0

@@ -105,7 +105,7 @@ export default function Form() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100"
+          className="bg-white rounded-3xl shadow-xl p-6 md:p-12 border border-gray-100"
         >
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
