@@ -4,20 +4,20 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const FAQS = [
     {
-        q: "Wer liest meinen Bürgerbrief?",
-        a: "Jeder Brief landet direkt bei Alexander Rheindorf. Eine KI unterstützt lediglich bei der optionalen Bildbearbeitung oder Textstrukturierung – die Inhalte werden persönlich gesichtet.",
+        q: "Wer liest eigentlich meinen Bürgerbrief?",
+        a: "Jeder Brief landet ohne Umwege direkt bei mir. Eine KI unterstützt dich zwar optional bei der Bildbearbeitung oder Textstrukturierung, aber die eigentlichen Inhalte sichte und beantworte ich persönlich.",
     },
     {
         q: "Muss ich das Bild-Tool nutzen?",
-        a: "Nein, das Bild-Tool ist rein optional. Du kannst deinen Brief auch als reinen Text absenden.",
+        a: "Absolut nicht. Wenn du lieber nur Text schreiben möchtest, ist das völlig okay. Das Tool ist nur ein Angebot, um dein Anliegen optisch zu unterstreichen.",
     },
     {
-        q: "Wie lange dauert eine Antwort?",
-        a: "In der Regel bemühen wir uns um eine Rückmeldung innerhalb weniger Werktage. Je nach Komplexität des Themas kann es manchmal etwas länger dauern.",
+        q: "Wann bekomme ich eine Antwort von dir?",
+        a: "Ich versuche, dir innerhalb weniger Werktage eine Rückmeldung zu geben. Je nachdem, wie komplex dein Thema ist, kann es manchmal ein kleines bisschen länger dauern – aber ich melde mich auf jeden Fall.",
     },
     {
         q: "Was passiert mit meinen Daten?",
-        a: "Deine Daten werden verschlüsselt übertragen und ausschließlich für die Bearbeitung deines Anliegens verwendet. Nach Abschluss des Vorgangs werden sie gemäß DSGVO gelöscht.",
+        a: "Deine Privatsphäre ist mir wichtig. Deine Daten werden verschlüsselt übertragen und nur für unser Gespräch genutzt. Danach werden sie gemäß der strengen DSGVO-Regeln wieder gelöscht.",
     },
 ];
 
@@ -40,7 +40,7 @@ export default function FAQ() {
                     </motion.div>
                     <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
                         Noch Fragen? <br className="md:hidden" />
-                        <span className="text-rek-magenta">Wir haben Antworten.</span>
+                        <span className="text-rek-magenta">Ich helfe dir gerne weiter.</span>
                     </h2>
                 </div>
 
@@ -53,8 +53,8 @@ export default function FAQ() {
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
                             className={`rounded-3xl border transition-all duration-300 ${openIdx === idx
-                                    ? "bg-white border-rek-magenta/20 shadow-xl shadow-rek-magenta/5"
-                                    : "bg-gray-100/50 border-transparent hover:bg-white hover:border-gray-200"
+                                ? "bg-white border-rek-magenta/20 shadow-xl shadow-rek-magenta/5"
+                                : "bg-gray-100/50 border-transparent hover:bg-white hover:border-gray-200"
                                 }`}
                         >
                             <button
