@@ -16,9 +16,8 @@ export default function Hero() {
           alt="Rhein-Erft-Kreis Landschaft"
           className="w-full h-full object-cover"
         />
-        {/* Soft, modern gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rek-magenta/40 via-black/20 to-rek-gelb/10 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-rek-magenta/80 to-rek-gelb/60 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-black/40" />
       </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-[-4vh]">
