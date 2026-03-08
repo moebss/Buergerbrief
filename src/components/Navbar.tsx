@@ -4,7 +4,6 @@ import { Menu, X, Send } from "lucide-react";
 
 const NAV_LINKS = [
     { name: "Start", href: "#" },
-    { name: "Dein Weg", href: "#prozess" },
     { name: "Bürgerbrief", href: "#buergerbrief" },
     { name: "Kontakt", href: "#ansprechpartner" },
     { name: "FAQ", href: "#faq" },
@@ -25,8 +24,8 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                    ? "py-4 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-sm"
-                    : "py-6 bg-transparent"
+                ? "py-4 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-sm"
+                : "py-6 bg-transparent"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">

@@ -9,7 +9,6 @@ import Contact from "./components/Contact";
 import Form from "./components/Form";
 import LegalModals from "./components/LegalModals";
 import Navbar from "./components/Navbar";
-import Process from "./components/Process";
 import FAQ from "./components/FAQ";
 
 export default function App() {
@@ -19,8 +18,8 @@ export default function App() {
     <main className="min-h-screen bg-white font-sans selection:bg-rek-gelb selection:text-gray-900">
       <Navbar />
       <Hero />
-      <Process />
       <Form />
+
       <FAQ />
       <Contact />
 
@@ -46,7 +45,7 @@ export default function App() {
               <h4 className="text-white font-bold tracking-widest uppercase text-xs">Navigation</h4>
               <ul className="space-y-4 text-sm font-medium">
                 <li><a href="#" className="hover:text-rek-magenta transition-colors">Startseite</a></li>
-                <li><a href="#prozess" className="hover:text-rek-magenta transition-colors">Wie es funktioniert</a></li>
+
                 <li><a href="#buergerbrief" className="hover:text-rek-magenta transition-colors">Bürgerbrief schreiben</a></li>
                 <li><a href="#faq" className="hover:text-rek-magenta transition-colors">FAQ</a></li>
               </ul>
