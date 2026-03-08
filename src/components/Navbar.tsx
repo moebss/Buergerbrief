@@ -24,10 +24,11 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                ? "py-4 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-sm"
-                : "py-6 bg-transparent"
+                ? "py-3 md:py-4 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-sm"
+                : "py-5 md:py-6 bg-transparent"
                 }`}
         >
+
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -76,31 +77,40 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+                        className="md:hidden bg-white/95 backdrop-blur-2xl border-b border-gray-100 overflow-hidden shadow-2xl"
                     >
-                        <div className="px-6 py-8 flex flex-col gap-6">
+                        <div className="px-6 py-10 flex flex-col gap-8">
                             {NAV_LINKS.map((link) => (
                                 <a
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-lg font-bold text-gray-900 flex items-center justify-between"
+                                    className="text-xl font-bold text-gray-900 flex items-center justify-between active:text-rek-magenta transition-colors"
                                 >
                                     {link.name}
-                                    <div className="w-2 h-2 rounded-full bg-rek-magenta" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-rek-magenta shadow-lg shadow-rek-magenta/20" />
                                 </a>
                             ))}
+                            <div className="pt-4 border-t border-gray-50">
+                                <a
+                                    href="#buergerbrief"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="w-full py-4 bg-rek-magenta text-white text-center font-bold rounded-2xl shadow-xl shadow-rek-magenta/20 block"
+                                >
+                                    Bürgerbrief schreiben
+                                </a>
+                            </div>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
+
         </nav>
     );
 }

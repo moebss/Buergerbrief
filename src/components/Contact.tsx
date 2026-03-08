@@ -3,7 +3,8 @@ import { Mail } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="ansprechpartner" className="py-32 bg-white relative overflow-hidden">
+    <section id="ansprechpartner" className="py-20 md:py-32 bg-white relative overflow-hidden">
+
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rek-gelb/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rek-magenta/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />

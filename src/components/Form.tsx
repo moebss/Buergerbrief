@@ -87,7 +87,8 @@ export default function Form() {
   };
 
   return (
-    <section id="buergerbrief" className="py-32 bg-gray-50 relative overflow-hidden">
+    <section id="buergerbrief" className="py-20 md:py-32 bg-gray-50 relative overflow-hidden">
+
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
 
@@ -113,9 +114,10 @@ export default function Form() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-3xl shadow-xl p-6 md:p-12 border border-gray-100"
+          className="bg-white rounded-3xl shadow-xl p-6 md:p-12 border border-gray-100 mx-1 md:mx-0"
         >
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-sm font-bold text-gray-700 ml-1">Name</label>
@@ -125,7 +127,7 @@ export default function Form() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none"
+                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none text-base"
                   placeholder="Max Mustermann"
                   required
                 />
@@ -139,7 +141,7 @@ export default function Form() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none"
+                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none text-base"
                   placeholder="max@beispiel.de"
                   required
                 />
@@ -172,7 +174,7 @@ export default function Form() {
                   name="thema"
                   value={formData.thema}
                   onChange={handleInputChange}
-                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none"
+                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none text-base"
                   placeholder="z.B. Radwegausbau"
                   required
                 />
@@ -250,7 +252,7 @@ export default function Form() {
                         value={imagePrompt}
                         onChange={(e) => setImagePrompt(e.target.value)}
                         placeholder="z.B. Gesichter unkenntlich machen..."
-                        className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-gelb focus:ring-0 transition-all bg-white outline-none pr-12 text-sm"
+                        className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-gelb focus:ring-0 transition-all bg-white outline-none pr-12 text-base"
                       />
                       <Wand2 className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rek-gelb" />
                     </div>

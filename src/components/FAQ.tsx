@@ -25,7 +25,8 @@ export default function FAQ() {
     const [openIdx, setOpenIdx] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="py-32 bg-gray-50 overflow-hidden">
+        <section id="faq" className="py-20 md:py-32 bg-gray-50 overflow-hidden">
+
             <div className="max-w-4xl mx-auto px-6 lg:px-8">
                 <div className="text-center mb-20">
                     <motion.div
