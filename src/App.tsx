@@ -45,7 +45,6 @@ export default function App() {
               <h4 className="text-white font-bold tracking-widest uppercase text-xs">Navigation</h4>
               <ul className="space-y-4 text-sm font-medium">
                 <li><a href="#" className="hover:text-rek-magenta transition-colors">Startseite</a></li>
-
                 <li><a href="#buergerbrief" className="hover:text-rek-magenta transition-colors">Bürgerbrief schreiben</a></li>
                 <li><a href="#faq" className="hover:text-rek-magenta transition-colors">FAQ</a></li>
               </ul>
