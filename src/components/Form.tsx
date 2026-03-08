@@ -105,9 +105,7 @@ export default function Form() {
           <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
             Bürgerbrief verfassen
           </h3>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
-            Teile dein Anliegen mit. Hänge bei Bedarf ein Bild an und nutze unsere <span className="text-rek-magenta font-semibold">KI-Assistenz</span>.
-          </p>
+
         </div>
 
 
