@@ -89,17 +89,25 @@ export default function Form() {
   return (
     <section id="buergerbrief" className="py-24 bg-gray-50">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-bold tracking-widest text-rek-magenta uppercase mb-3">
-            Ihre Stimme zählt
-          </h2>
-          <h3 className="text-4xl font-extrabold text-gray-900 mb-4">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 mb-6 rounded-full bg-rek-magenta/10 border border-rek-magenta/20"
+          >
+            <span className="text-sm font-bold tracking-widest text-rek-magenta uppercase">
+              Ihre Stimme zählt
+            </span>
+          </motion.div>
+          <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
             Bürgerbrief verfassen
           </h3>
-          <p className="text-lg text-gray-600">
-            Teile dein Anliegen mit. Hänge bei Bedarf ein Bild an.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+            Teile dein Anliegen mit. Hänge bei Bedarf ein Bild an und nutze unsere <span className="text-rek-magenta font-semibold">KI-Assistenz</span>.
           </p>
         </div>
+
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -108,45 +116,45 @@ export default function Form() {
           className="bg-white rounded-3xl shadow-xl p-6 md:p-12 border border-gray-100"
         >
           <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-2">
+                <label htmlFor="name" className="block text-sm font-bold text-gray-700 ml-1">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-rek-magenta focus:border-transparent transition-all"
+                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none"
                   placeholder="Max Mustermann"
                   required
                 />
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-Mail</label>
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-sm font-bold text-gray-700 ml-1">E-Mail</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-rek-magenta focus:border-transparent transition-all"
+                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none"
                   placeholder="max@beispiel.de"
                   required
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="kommune" className="block text-sm font-medium text-gray-700 mb-1">Kommune</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-2">
+                <label htmlFor="kommune" className="block text-sm font-bold text-gray-700 ml-1">Kommune</label>
                 <select
                   id="kommune"
                   name="kommune"
                   value={formData.kommune}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-rek-magenta focus:border-transparent transition-all bg-white"
+                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none appearance-none cursor-pointer"
                   required
                 >
                   <option value="" disabled>Bitte wählen...</option>
@@ -156,43 +164,46 @@ export default function Form() {
                 </select>
               </div>
 
-              <div>
-                <label htmlFor="thema" className="block text-sm font-medium text-gray-700 mb-1">Thema</label>
+              <div className="space-y-2">
+                <label htmlFor="thema" className="block text-sm font-bold text-gray-700 ml-1">Thema</label>
                 <input
                   type="text"
                   id="thema"
                   name="thema"
                   value={formData.thema}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-rek-magenta focus:border-transparent transition-all"
+                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none"
                   placeholder="z.B. Radwegausbau"
                   required
                 />
               </div>
             </div>
 
-            <div>
-              <label htmlFor="infos" className="block text-sm font-medium text-gray-700 mb-1">Zusätzliche Infos</label>
+            <div className="space-y-2">
+              <label htmlFor="infos" className="block text-sm font-bold text-gray-700 ml-1">Zusätzliche Infos</label>
               <textarea
                 id="infos"
                 name="infos"
                 rows={5}
                 value={formData.infos}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-rek-magenta focus:border-transparent transition-all resize-none"
+                className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none resize-none"
                 placeholder="Weitere Details zu Ihrem Anliegen..."
               />
             </div>
 
+
             {/* Image Attachment Section */}
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-              <div className="mb-4">
-                <h4 className="text-lg font-semibold text-gray-900 flex items-center">
-                  <ImageIcon className="w-5 h-5 text-rek-magenta mr-2" />
+            <div className="bg-gray-50/50 rounded-3xl p-8 border border-gray-100">
+              <div className="mb-6">
+                <h4 className="text-xl font-bold text-gray-900 flex items-center">
+                  <div className="p-2 rounded-lg bg-white shadow-sm mr-3">
+                    <ImageIcon className="w-5 h-5 text-rek-magenta" />
+                  </div>
                   Briefanhang (Optional)
                 </h4>
-                <p className="text-sm text-gray-600 mt-1">
-                  Laden Sie ein Foto hoch, um Ihr Anliegen zu verdeutlichen. Sie können das Bild mit unserer KI bearbeiten (z.B. "Gesichter unkenntlich machen").
+                <p className="text-sm text-gray-500 mt-2 font-light">
+                  Laden Sie ein Foto hoch, um Ihr Anliegen zu verdeutlichen. Nutzen Sie unsere <span className="text-rek-magenta font-semibold">KI</span>, um Details zu markieren oder Unnötiges zu entfernen.
                 </p>
               </div>
 
@@ -205,66 +216,77 @@ export default function Form() {
                     ref={fileInputRef}
                     onChange={handleImageUpload}
                   />
-                  <button
+                  <motion.button
                     type="button"
+                    whileHover={{ scale: 1.01, borderColor: "var(--color-rek-magenta)" }}
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-full flex flex-col items-center justify-center px-4 py-8 border-2 border-dashed border-gray-300 rounded-xl text-gray-600 hover:border-rek-magenta hover:text-rek-magenta transition-all bg-white"
+                    className="w-full flex flex-col items-center justify-center px-4 py-12 border-2 border-dashed border-gray-200 rounded-2xl text-gray-400 hover:text-rek-magenta transition-all bg-white"
                   >
-                    <ImageIcon className="w-8 h-8 mb-2 opacity-50" />
-                    <span className="font-medium">Bild auswählen oder hier ablegen</span>
-                  </button>
+                    <ImageIcon className="w-10 h-10 mb-3 opacity-20" />
+                    <span className="font-semibold text-gray-600">Bild auswählen oder ablegen</span>
+                    <span className="text-xs mt-1 text-gray-400">JPG, PNG bis 5MB</span>
+                  </motion.button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="relative bg-white rounded-xl border border-gray-200 overflow-hidden flex items-center justify-center min-h-[200px]">
-                    <img src={imageBase64} alt="Anhang Vorschau" className="w-full h-full object-contain" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="relative group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex items-center justify-center min-h-[250px]">
+                    <img src={imageBase64} alt="Anhang Vorschau" className="w-full h-full object-contain p-2" />
                     <button
                       type="button"
                       onClick={handleRemoveImage}
-                      className="absolute top-2 right-2 p-1.5 bg-white/80 backdrop-blur-sm rounded-full text-gray-700 hover:text-red-600 hover:bg-white shadow-sm transition-all"
+                      className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 hover:bg-white shadow-xl transition-all opacity-0 group-hover:opacity-100"
                     >
-                      <X className="w-4 h-4" />
+                      <X className="w-5 h-5" />
                     </button>
                   </div>
 
-                  <div className="flex flex-col justify-center space-y-3">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Bild mit KI bearbeiten
+                  <div className="flex flex-col justify-center space-y-4">
+                    <label className="block text-sm font-bold text-gray-700 ml-1 ring-offset-background">
+                      KI-Bildbearbeitung
                     </label>
-                    <input
-                      type="text"
-                      value={imagePrompt}
-                      onChange={(e) => setImagePrompt(e.target.value)}
-                      placeholder="z.B. Füge einen roten Kreis um das Schlagloch hinzu"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-rek-magenta focus:border-transparent transition-all text-sm"
-                    />
-                    <button
+                    <div className="relative">
+                      <input
+                        type="text"
+                        value={imagePrompt}
+                        onChange={(e) => setImagePrompt(e.target.value)}
+                        placeholder="z.B. Gesichter unkenntlich machen..."
+                        className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-gelb focus:ring-0 transition-all bg-white outline-none pr-12 text-sm"
+                      />
+                      <Wand2 className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rek-gelb" />
+                    </div>
+                    <motion.button
                       type="button"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       onClick={handleEditImage}
                       disabled={isEditingImage || !imagePrompt}
-                      className="w-full flex items-center justify-center px-4 py-3 bg-rek-gelb text-gray-900 rounded-xl font-semibold hover:bg-[#e6d500] transition-all disabled:opacity-50"
+                      className="w-full flex items-center justify-center px-6 py-4 bg-rek-gelb text-gray-900 rounded-2xl font-bold hover:shadow-lg hover:shadow-rek-gelb/20 transition-all disabled:opacity-50"
                     >
                       {isEditingImage ? (
-                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <Loader2 className="w-6 h-6 animate-spin" />
                       ) : (
                         <>
-                          <Wand2 className="w-5 h-5 mr-2" />
-                          Bild bearbeiten
+                          <Wand2 className="w-5 h-5 mr-3" />
+                          Bild bearbeiten mit KI
                         </>
                       )}
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
               )}
             </div>
 
-            <button
+
+            <motion.button
               type="submit"
-              className="w-full flex items-center justify-center px-6 py-4 text-lg font-semibold rounded-xl text-white bg-rek-magenta hover:bg-[#c4006a] transition-all shadow-lg hover:shadow-rek-magenta/30"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full flex items-center justify-center px-8 py-5 text-xl font-bold rounded-2xl text-white bg-rek-magenta hover:bg-rek-magenta-dark transition-all shadow-xl shadow-rek-magenta/20"
             >
               Bürgerbrief absenden
-              <Send className="ml-2 w-5 h-5" />
-            </button>
+              <Send className="ml-3 w-6 h-6" />
+            </motion.button>
+
           </form>
         </motion.div>
       </div>

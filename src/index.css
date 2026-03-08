@@ -3,4 +3,17 @@
 @theme {
   --color-rek-gelb: #ffed00;
   --color-rek-magenta: #e5007d;
+  --color-rek-magenta-dark: #c4006a;
+  --color-rek-gray-50: #f9fafb;
+  --color-rek-gray-100: #f3f4f6;
+  --color-rek-gray-200: #e5e7eb;
+  --color-rek-gray-600: #4b5563;
+  --color-rek-gray-900: #111827;
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+

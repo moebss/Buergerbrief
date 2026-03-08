@@ -8,9 +8,10 @@ Diese Vorlage erklärt, welche Dateien und Stellen angepasst werden müssen, um 
 
 1. **Repo klonen / kopieren**
 2. **Bilder austauschen** (siehe unten)
-3. **7 Dateien anpassen** (siehe Checkliste)
-4. **GitHub Repo erstellen**, pushen, GitHub Pages auf "GitHub Actions" stellen
-5. Fertig! 🚀
+3. **8 Dateien anpassen** (siehe Checkliste)
+4. **`.env`-Datei anlegen** mit `GEMINI_API_KEY=...`
+5. **GitHub Repo erstellen**, pushen, GitHub Pages auf "GitHub Actions" stellen
+6. Fertig! 🚀
 
 ---
 
@@ -19,19 +20,21 @@ Diese Vorlage erklärt, welche Dateien und Stellen angepasst werden müssen, um 
 ```
 ├── index.html                  ← Seitentitel
 ├── vite.config.ts              ← base-Pfad (= GitHub Repo-Name)
+├── .env                        ← GEMINI_API_KEY (nicht einchecken!)
 ├── public/
 │   ├── hero-bg.png             ← Hero-Hintergrundbild
 │   └── alexander-rheindorf.jpg ← Foto des Ansprechpartners
 ├── src/
-│   ├── App.tsx                 ← Footer-Text
+│   ├── App.tsx                 ← Footer-Text + Modal-Steuerung
 │   ├── index.css               ← Farben (Magenta + Gelb)
+│   ├── main.tsx                ← Einstiegspunkt (unverändert)
 │   ├── components/
 │   │   ├── Hero.tsx            ← Überschrift, Beschreibung, Name
-│   │   ├── Contact.tsx         ← Name, Bild, Adresse, E-Mail, Telefon
-│   │   ├── Form.tsx            ← Kommunen-Dropdown
-│   │   └── LegalModals.tsx     ← Impressum & Datenschutz (Name, Adresse, E-Mail, etc.)
+│   │   ├── Contact.tsx         ← Name, Bild, Beschreibung, E-Mail
+│   │   ├── Form.tsx            ← Kommunen-Dropdown + Bild-Upload
+│   │   └── LegalModals.tsx     ← Impressum & Datenschutz (Name, Adresse, E-Mail)
 │   └── services/
-│       └── gemini.ts           ← KI-Prompt (Region + Name)
+│       └── gemini.ts           ← KI-Prompt (Region + Name) + Bild-KI
 └── .github/workflows/
     └── deploy.yml              ← Deployment (normalerweise unverändert)
 ```
@@ -45,11 +48,15 @@ Diese Vorlage erklärt, welche Dateien und Stellen angepasst werden müssen, um 
 <title>Bürgerbrief ___KOMMUNE___</title>
 ```
 
+**Zeile:** 7
+
 ### 2. `vite.config.ts` – GitHub Pages Base-Pfad
 ```ts
 base: '/___REPO_NAME___/',
 ```
 > Muss dem GitHub-Repository-Namen entsprechen, z.B. `/Buergerbrief-Bruehl/`
+
+**Zeile:** 9
 
 ### 3. `public/` – Bilder austauschen
 
@@ -69,14 +76,14 @@ base: '/___REPO_NAME___/',
 +   <span>___KOMMUNE___</span>
   </h1>
 
-- Schreiben Sie Ihren Bürgerbrief direkt an Alexander Rheindorf...
-+ Schreiben Sie Ihren Bürgerbrief direkt an ___NAME___...
+- Gestalte deine Heimat aktiv mit. Schreibe deinen Bürgerbrief direkt an mich...
++ ___BESCHREIBUNG___
 
 - Über Alexander Rheindorf
 + Über ___NAME___
 ```
 
-**Zeilen:** 24-29, 44
+**Zeilen:** 26–29, 44
 
 ### 5. `src/components/Contact.tsx` – Ansprechpartner-Daten
 
@@ -93,19 +100,13 @@ base: '/___REPO_NAME___/',
 - Als engagierter Kommunalpolitiker im Rhein-Erft-Kreis...
 + Als engagierter Kommunalpolitiker in ___KOMMUNE___...
 
-- <h4>Büro Rhein-Erft-Kreis</h4>
-- <p>Willy-Brandt-Platz 1<br/>50126 Bergheim</p>
-+ <h4>Büro ___KOMMUNE___</h4>
-+ <p>___STRASSE___<br/>___PLZ_ORT___</p>
-
 - alexander.rheindorf@fdp-rek.de
 + ___EMAIL___
-
-- +49 (0) 2271 83-0
-+ ___TELEFON___
 ```
 
-**Zeilen:** 20-21, 41, 44, 55-56, 68, 80
+> **Hinweis:** In der aktuellen Version enthält `Contact.tsx` **keine** Adresse und Telefonnummer mehr – nur noch E-Mail. Falls gewünscht, können diese wieder ergänzt werden.
+
+**Zeilen:** 20–21, 41, 45, 51, 64–65
 
 ### 6. `src/components/Form.tsx` – Kommunen-Dropdown
 
@@ -116,7 +117,7 @@ base: '/___REPO_NAME___/',
   ];
 ```
 
-**Zeilen:** 6-17
+**Zeilen:** 6–17
 
 ### 7. `src/components/LegalModals.tsx` – Impressum & Datenschutz
 
@@ -124,23 +125,20 @@ base: '/___REPO_NAME___/',
 - Alexander Rheindorf
 + ___NAME___
 
-- Willy-Brandt-Platz 1
-- 50126 Bergheim
+- Pankratiusstraße 31
+- 50129 Bergheim
 + ___STRASSE___
 + ___PLZ_ORT___
 
 - alexander.rheindorf@fdp-rek.de
 + ___EMAIL___
-
-- +49 (0) 2271 83-0
-+ ___TELEFON___
 ```
 
-> **Hinweis:** Suchen Sie in der Datei nach "Alexander Rheindorf", "Willy-Brandt-Platz 1", "50126 Bergheim", der E-Mail-Adresse und der Telefonnummer und ersetzen Sie diese durch die neuen Daten. Diese kommen jeweils im Impressum (oben in der Datei) und nochmal im Datenschutz (unten in der Datei) vor.
+> **Hinweis:** Suchen Sie in der Datei nach „Alexander Rheindorf", „Pankratiusstraße 31", „50129 Bergheim" und der E-Mail-Adresse und ersetzen Sie diese durch die neuen Daten. Diese kommen jeweils im Impressum (oben in der Datei) und nochmal im Datenschutz (unten in der Datei) vor.
 
-**Zeilen:** 40-42, 46-47, 51-53, 93-96, 151-152
+**Zeilen:** 54–56, 62, 67–69, 105–108, 161
 
-### 8. `src/services/gemini.ts` – KI-Prompt (optional)
+### 8. `src/services/gemini.ts` – KI-Prompt
 
 ```diff
 - ...an den Kommunalpolitiker Alexander Rheindorf.
@@ -159,7 +157,7 @@ base: '/___REPO_NAME___/',
 + © 2026 Bürgerbrief ___KOMMUNE___.
 ```
 
-**Zeile:** 21
+**Zeile:** 25
 
 ---
 
@@ -187,9 +185,10 @@ Diese Farben werden überall via Tailwind-Klassen verwendet:
 
 1. Neues GitHub-Repo erstellen
 2. `vite.config.ts` → `base` auf den Repo-Namen setzen
-3. Pushen
-4. GitHub → Settings → Pages → Source: **"GitHub Actions"**
-5. Seite ist live unter `https://___USER___.github.io/___REPO___/`
+3. `.env`-Datei mit `GEMINI_API_KEY` anlegen (lokal + als GitHub Secret)
+4. Pushen
+5. GitHub → Settings → Pages → Source: **"GitHub Actions"**
+6. Seite ist live unter `https://___USER___.github.io/___REPO___/`
 
 Die `.github/workflows/deploy.yml` muss **nicht** angepasst werden.
 
@@ -203,7 +202,6 @@ Die `.github/workflows/deploy.yml` muss **nicht** angepasst werden.
 | Ansprechpartner | Max Mustermann |
 | Repo-Name | `Buergerbrief-Bruehl` |
 | Bild | `max-mustermann.jpg` |
-| Adresse | Uhlstr. 3, 50321 Brühl |
+| Adresse (Impressum) | Uhlstr. 3, 50321 Brühl |
 | E-Mail | max@fdp-bruehl.de |
-| Telefon | +49 (0) 2232 12345 |
 | Kommunen im Dropdown | nur "Brühl" |
