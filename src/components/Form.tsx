@@ -29,9 +29,11 @@ export default function Form() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imageBase64, setImageBase64] = useState<string | null>(null);
   const [imagePrompt, setImagePrompt] = useState("");
+  const [isEditingImage, setIsEditingImage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const fileInputRef = useRef<HTMLInputElement>(null);
+
 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -132,7 +134,8 @@ export default function Form() {
 
 
   return (
-    <section id="buergerbrief" className="py-20 md:py-32 bg-gray-50 relative overflow-hidden">
+    <section id="schreib-mir" className="py-20 md:py-32 bg-gray-50 relative overflow-hidden">
+
 
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
@@ -149,8 +152,9 @@ export default function Form() {
             </span>
           </motion.div>
           <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
-            Bürgerbrief verfassen
+            Schreib mir – ich höre zu.
           </h3>
+
 
         </div>
 
@@ -183,11 +187,9 @@ export default function Form() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="block text-sm font-bold text-gray-700 ml-1">Name</label>
+                  <label htmlFor="name" className="block text-sm font-bold text-gray-700 ml-1">Dein Name</label>
                   <input
                     type="text"
                     id="name"
@@ -201,7 +203,7 @@ export default function Form() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 ml-1">E-Mail</label>
+                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 ml-1">Deine E-Mail</label>
                   <input
                     type="email"
                     id="email"
@@ -209,72 +211,42 @@ export default function Form() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none text-base"
-                    placeholder="max@beispiel.de"
+                    placeholder="damit ich dir antworten kann"
                     required
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label htmlFor="kommune" className="block text-sm font-bold text-gray-700 ml-1">Kommune</label>
-                  <select
-                    id="kommune"
-                    name="kommune"
-                    value={formData.kommune}
-                    onChange={handleInputChange}
-                    className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none appearance-none cursor-pointer"
-                    required
-                  >
-                    <option value="" disabled>Bitte wählen...</option>
-                    {KOMMUNEN.map((k) => (
-                      <option key={k} value={k}>{k}</option>
-                    ))}
-                  </select>
-                </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="thema" className="block text-sm font-bold text-gray-700 ml-1">Thema</label>
-                  <input
-                    type="text"
-                    id="thema"
-                    name="thema"
-                    value={formData.thema}
-                    onChange={handleInputChange}
-                    className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none text-base"
-                    placeholder="z.B. Radwegausbau"
-                    required
-                  />
-                </div>
-              </div>
 
               <div className="space-y-2">
-                <label htmlFor="infos" className="block text-sm font-bold text-gray-700 ml-1">Zusätzliche Infos</label>
+                <label htmlFor="infos" className="block text-sm font-bold text-gray-700 ml-1">Was beschäftigt dich?</label>
                 <textarea
                   id="infos"
                   name="infos"
-                  rows={5}
+                  rows={6}
                   value={formData.infos}
                   onChange={handleInputChange}
-                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none resize-none"
-                  placeholder="Weitere Details zu Ihrem Anliegen..."
+                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none resize-none text-base"
+                  placeholder="Das kann ein Straßenproblem sein, eine Sorge um die Schule deiner Kinder – oder einfach etwas, das du schon lange loswerden wolltest."
+                  required
                 />
               </div>
 
 
-              {/* Image Attachment Section */}
-              <div className="bg-gray-50/50 rounded-3xl p-8 border border-gray-100">
-                <div className="mb-6">
-                  <h4 className="text-xl font-bold text-gray-900 flex items-center">
-                    <div className="p-2 rounded-lg bg-white shadow-sm mr-3">
-                      <ImageIcon className="w-5 h-5 text-rek-magenta" />
-                    </div>
-                    Briefanhang (Optional)
-                  </h4>
-                  <p className="text-sm text-gray-500 mt-2 font-light">
-                    Laden Sie ein Foto hoch, um Ihr Anliegen zu verdeutlichen. Nutzen Sie unsere <span className="text-rek-magenta font-semibold">KI</span>, um Details zu markieren oder Unnötiges zu entfernen.
-                  </p>
+
+              {/* Simplified Image Attachment Section */}
+              <div className="py-4 border-t border-gray-50">
+                <div className="flex items-center justify-between mb-4">
+                  <label className="text-sm font-bold text-gray-700 flex items-center cursor-pointer" onClick={() => !imageBase64 && fileInputRef.current?.click()}>
+                    <ImageIcon className="w-4 h-4 mr-2 text-gray-400" />
+                    Foto mitschicken? (Optional)
+                  </label>
+                  {imageBase64 && (
+                    <button type="button" onClick={handleRemoveImage} className="text-xs text-red-500 font-semibold">Entfernen</button>
+                  )}
                 </div>
+
 
                 {!imageBase64 ? (
                   <div>
@@ -297,53 +269,31 @@ export default function Form() {
                     </motion.button>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="relative group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex items-center justify-center min-h-[250px]">
-                      <img src={imageBase64} alt="Anhang Vorschau" className="w-full h-full object-contain p-2" />
+                  <div className="space-y-4">
+                    <div className="relative rounded-2xl border border-gray-100 overflow-hidden bg-gray-50 max-h-48 flex items-center justify-center">
+                      <img src={imageBase64} alt="Vorschau" className="max-h-48 object-contain" />
+                    </div>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={imagePrompt}
+                        onChange={(e) => setImagePrompt(e.target.value)}
+                        placeholder="KI: Gesichter unkenntlich machen..."
+                        className="flex-1 px-4 py-2 text-sm rounded-xl border border-gray-200 outline-none focus:border-rek-gelb transition-colors"
+                      />
                       <button
                         type="button"
-                        onClick={handleRemoveImage}
-                        className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 hover:bg-white shadow-xl transition-all opacity-0 group-hover:opacity-100"
-                      >
-                        <X className="w-5 h-5" />
-                      </button>
-                    </div>
-
-                    <div className="flex flex-col justify-center space-y-4">
-                      <label className="block text-sm font-bold text-gray-700 ml-1 ring-offset-background">
-                        KI-Bildbearbeitung
-                      </label>
-                      <div className="relative">
-                        <input
-                          type="text"
-                          value={imagePrompt}
-                          onChange={(e) => setImagePrompt(e.target.value)}
-                          placeholder="z.B. Gesichter unkenntlich machen..."
-                          className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-gelb focus:ring-0 transition-all bg-white outline-none pr-12 text-base"
-                        />
-                        <Wand2 className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rek-gelb" />
-                      </div>
-                      <motion.button
-                        type="button"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
                         onClick={handleEditImage}
                         disabled={isEditingImage || !imagePrompt}
-                        className="w-full flex items-center justify-center px-6 py-4 bg-rek-gelb text-gray-900 rounded-2xl font-bold hover:shadow-lg hover:shadow-rek-gelb/20 transition-all disabled:opacity-50"
+                        className="px-4 py-2 bg-rek-gelb text-gray-900 rounded-xl text-sm font-bold disabled:opacity-50"
                       >
-                        {isEditingImage ? (
-                          <Loader2 className="w-6 h-6 animate-spin" />
-                        ) : (
-                          <>
-                            <Wand2 className="w-5 h-5 mr-3" />
-                            Bild bearbeiten mit KI
-                          </>
-                        )}
-                      </motion.button>
+                        {isEditingImage ? <Loader2 className="w-4 h-4 animate-spin" /> : "Anwenden"}
+                      </button>
                     </div>
                   </div>
                 )}
               </div>
+
 
 
               <motion.button
@@ -357,13 +307,18 @@ export default function Form() {
                   <Loader2 className="w-6 h-6 animate-spin" />
                 ) : (
                   <>
-                    Bürgerbrief absenden
+                    Brief senden
                     <Send className="ml-3 w-6 h-6" />
                   </>
                 )}
               </motion.button>
 
+              <p className="text-center text-sm text-gray-500 mt-6">
+                Deine Nachricht geht nur an mich. Ich behandle sie vertraulich.
+              </p>
+
               {submitStatus === "error" && (
+
                 <p className="text-center text-red-500 font-bold mt-4">
                   Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.
                 </p>

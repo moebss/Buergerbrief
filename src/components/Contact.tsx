@@ -38,30 +38,39 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
           >
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block px-4 py-1.5 mb-6 rounded-full bg-rek-magenta/10 border border-rek-magenta/20"
+              className="inline-block px-4 py-1.5 mb-2 rounded-full bg-rek-magenta/10 border border-rek-magenta/20"
             >
               <span className="text-sm font-bold tracking-widest text-rek-magenta uppercase">
-                Ihr Ansprechpartner
+                Über mich
               </span>
             </motion.div>
 
-            <h3 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 tracking-tight">
-              Alexander <br />
-              <span className="text-rek-magenta">Rheindorf</span>
-            </h3>
+            <div>
+              <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
+                Warum ich das mache?
+              </h3>
+              <p className="text-xl text-gray-600 leading-relaxed font-light mb-8">
+                Politik fühlt sich oft weit weg an – Akten, Sitzungen, lange Wege. Aber die echten Themen liegen vor unserer Haustür. Ich mache das hier, weil ich davon überzeugt bin, dass gute Politik nur funktioniert, wenn wir im Gespräch bleiben.
+              </p>
 
-            <div className="text-xl text-gray-600 mb-10 leading-relaxed space-y-6 font-light">
-              <p>
-                Als engagierter Kommunalpolitiker im <span className="font-semibold text-gray-900">Rhein-Erft-Kreis</span> setze ich mich leidenschaftlich für Ihre Belange ein. Ob Infrastruktur, Bildung oder Digitalisierung – Ihre Themen sind mein Antrieb.
-              </p>
-              <p>
-                Ich bin fest davon überzeugt, dass positive Veränderungen durch einen <span className="font-semibold text-gray-900">direkten Dialog</span> entstehen. Gemeinsam schaffen wir zukunftssichere Rahmenbedingungen für Bürger und Unternehmen.
-              </p>
+              <div className="space-y-6 mb-8">
+                <div className="flex gap-4">
+                  <div className="w-1.5 h-auto bg-rek-gelb rounded-full" />
+                  <p className="text-gray-700 italic">
+                    "Zuletzt hat mich das Thema Schulwegsicherheit in einer unserer Kommunen sehr beschäftigt. Ein Vater hat mir geschrieben, wir haben uns das vor Ort angesehen und konnten im Kreistag erste Verbesserungen anstoßen."
+                  </p>
+                </div>
+
+                <p className="text-gray-600 leading-relaxed font-light">
+                  Ich bin fest davon überzeugt, dass positive Veränderungen durch einen <span className="font-semibold text-gray-900">direkten Dialog</span> entstehen. Deine Nachricht gibt mir die Argumente, die ich brauche, um im Kreistag für unsere Heimat zu kämpfen.
+                </p>
+              </div>
             </div>
 
             <div className="pt-8 border-t border-gray-100">
@@ -72,7 +81,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="ml-5">
-                  <h4 className="text-sm font-bold text-gray-400 uppercase tracking-tighter">Schreiben Sie mir</h4>
+                  <h4 className="text-sm font-bold text-gray-400 uppercase tracking-tighter">Schreib mir gerne</h4>
                   <a href="mailto:alexander.rheindorf@fdp-rek.de" className="text-xl font-bold text-gray-900 hover:text-rek-magenta transition-colors">
                     alexander.rheindorf@fdp-rek.de
                   </a>
@@ -84,6 +93,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-
   );
 }

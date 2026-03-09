@@ -29,27 +29,27 @@ export default function Hero() {
           <motion.h1
             className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-6 md:mb-8 leading-[1.05] md:leading-[1.1]"
           >
-            Ihre Stimme im <br />
-            <span className="text-rek-gelb drop-shadow-[0_0_15px_rgba(255,237,0,0.3)]">Rhein-Erft-Kreis</span>
+            Ich möchte wissen, <br />
+            <span className="text-rek-gelb drop-shadow-[0_0_15px_rgba(255,237,0,0.3)]">was dich bewegt.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="mt-4 md:mt-6 text-lg md:text-2xl text-gray-100/90 max-w-2xl mx-auto font-light leading-relaxed px-2 md:px-0"
+            className="mt-4 md:mt-6 text-xl md:text-2xl text-gray-100/90 max-w-2xl mx-auto font-light leading-relaxed px-2 md:px-0"
           >
-            Gestalte deine Heimat aktiv mit. Schreibe deinen <span className="font-semibold text-white">Bürgerbrief</span> direkt an mich und bringe deine Themen voran.
+            Nicht aus der Zeitung oder durch Dritte – sondern direkt von dir. Schreib mir, was dich beschäftigt, und lass uns gemeinsam an Lösungen arbeiten.
           </motion.p>
 
           <div className="mt-10 md:mt-12 flex flex-col sm:flex-row gap-5 justify-center items-center">
             <motion.a
-              href="#buergerbrief"
+              href="#schreib-mir"
               whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(229, 0, 125, 0.4)" }}
               whileTap={{ scale: 0.95 }}
               className="group inline-flex items-center justify-center w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 text-lg md:text-xl font-bold rounded-2xl text-white bg-rek-magenta transition-all shadow-xl shadow-rek-magenta/20"
             >
-              Bürgerbrief verfassen
+              Schreib mir direkt
               <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
             </motion.a>
           </div>

@@ -10,6 +10,9 @@ import Form from "./components/Form";
 import LegalModals from "./components/LegalModals";
 import Navbar from "./components/Navbar";
 import FAQ from "./components/FAQ";
+import HowItWorks from "./components/HowItWorks";
+import { Send } from "lucide-react";
+
 
 export default function App() {
   const [activeModal, setActiveModal] = useState<"impressum" | "datenschutz" | null>(null);
@@ -18,7 +21,9 @@ export default function App() {
     <main className="min-h-screen bg-white font-sans selection:bg-rek-gelb selection:text-gray-900">
       <Navbar />
       <Hero />
+      <HowItWorks />
       <Form />
+
 
       <FAQ />
       <Contact />
@@ -45,9 +50,10 @@ export default function App() {
               <h4 className="text-white font-bold tracking-widest uppercase text-xs">Navigation</h4>
               <ul className="space-y-4 text-sm font-medium">
                 <li><a href="#" className="hover:text-rek-magenta transition-colors">Startseite</a></li>
-                <li><a href="#buergerbrief" className="hover:text-rek-magenta transition-colors">Bürgerbrief schreiben</a></li>
+                <li><a href="#schreib-mir" className="hover:text-rek-magenta transition-colors">Schreib mir direkt</a></li>
                 <li><a href="#faq" className="hover:text-rek-magenta transition-colors">FAQ</a></li>
               </ul>
+
             </div>
 
             <div className="space-y-6">

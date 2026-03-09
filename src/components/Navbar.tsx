@@ -4,9 +4,9 @@ import { Menu, X, Send } from "lucide-react";
 
 const NAV_LINKS = [
     { name: "Start", href: "#" },
-    { name: "Bürgerbrief", href: "#buergerbrief" },
-    { name: "Kontakt", href: "#ansprechpartner" },
+    { name: "Schreib mir", href: "#schreib-mir" },
     { name: "FAQ", href: "#faq" },
+    { name: "Kontakt", href: "#ansprechpartner" },
 ];
 
 export default function Navbar() {
@@ -99,11 +99,11 @@ export default function Navbar() {
                             ))}
                             <div className="pt-4 border-t border-gray-50">
                                 <a
-                                    href="#buergerbrief"
+                                    href="#schreib-mir"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className="w-full py-4 bg-rek-magenta text-white text-center font-bold rounded-2xl shadow-xl shadow-rek-magenta/20 block"
                                 >
-                                    Bürgerbrief schreiben
+                                    Schreib mir
                                 </a>
                             </div>
                         </div>
