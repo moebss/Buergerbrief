@@ -3,25 +3,10 @@ import { motion } from "motion/react";
 import { Send, Image as ImageIcon, Loader2, Wand2, X } from "lucide-react";
 import { editImageWithPrompt } from "../services/gemini";
 
-const KOMMUNEN = [
-  "Bedburg",
-  "Bergheim",
-  "Brühl",
-  "Elsdorf",
-  "Erftstadt",
-  "Frechen",
-  "Hürth",
-  "Kerpen",
-  "Pulheim",
-  "Wesseling",
-];
-
 export default function Form() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    kommune: "",
-    thema: "",
     infos: "",
   });
 
@@ -97,9 +82,7 @@ export default function Form() {
         access_key: "7c04e848-ebdb-45ca-bea1-09174c75cd8d", // Real Web3Forms Access Key
         name: formData.name,
         email: formData.email,
-        subject: `Neuer Bürgerbrief: ${formData.thema} (${formData.kommune})`,
-        kommune: formData.kommune,
-        thema: formData.thema,
+        subject: `Neuer Bürgerbrief von ${formData.name}`,
         infos: formData.infos,
         // Web3Forms allows custom data fields
         attachment_base64: imageBase64 || "Kein Anhang",
@@ -118,7 +101,7 @@ export default function Form() {
 
       if (result.success) {
         setSubmitStatus("success");
-        setFormData({ name: "", email: "", kommune: "", thema: "", infos: "" });
+        setFormData({ name: "", email: "", infos: "" });
         handleRemoveImage();
       } else {
         setSubmitStatus("error");
@@ -141,21 +124,9 @@ export default function Form() {
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
 
         <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 rounded-full bg-rek-magenta/10 border border-rek-magenta/20"
-          >
-            <span className="text-sm font-bold tracking-widest text-rek-magenta uppercase">
-              Ihre Stimme zählt
-            </span>
-          </motion.div>
           <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
             Schreib mir – ich höre zu.
           </h3>
-
-
         </div>
 
 
@@ -176,7 +147,7 @@ export default function Form() {
               </div>
               <h4 className="text-3xl font-black text-gray-900 mb-4">Brief gesendet!</h4>
               <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
-                Vielen Dank für Ihre Nachricht. Ich werde mich so schnell wie möglich bei Ihnen melden.
+                Danke für dein Vertrauen. Ich lese deinen Brief persönlich und melde mich so schnell wie möglich bei dir.
               </p>
               <button
                 onClick={() => setSubmitStatus("idle")}
@@ -197,7 +168,7 @@ export default function Form() {
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none text-base"
-                    placeholder="Max Mustermann"
+                    placeholder="Wie heißt du?"
                     required
                   />
                 </div>
@@ -228,7 +199,7 @@ export default function Form() {
                   value={formData.infos}
                   onChange={handleInputChange}
                   className="w-full px-5 py-4 rounded-2xl border-2 border-gray-100 focus:border-rek-magenta focus:ring-0 transition-all bg-gray-50/50 hover:bg-white focus:bg-white outline-none resize-none text-base"
-                  placeholder="Das kann ein Straßenproblem sein, eine Sorge um die Schule deiner Kinder – oder einfach etwas, das du schon lange loswerden wolltest."
+                  placeholder="Was beschäftigt dich? Das kann ein Straßenproblem sein, eine Sorge um die Schule deiner Kinder – oder einfach etwas, das du schon lange loswerden wolltest."
                   required
                 />
               </div>
@@ -261,34 +232,16 @@ export default function Form() {
                       type="button"
                       whileHover={{ scale: 1.01, borderColor: "var(--color-rek-magenta)" }}
                       onClick={() => fileInputRef.current?.click()}
-                      className="w-full flex flex-col items-center justify-center px-4 py-12 border-2 border-dashed border-gray-200 rounded-2xl text-gray-400 hover:text-rek-magenta transition-all bg-white"
+                      className="w-full flex items-center justify-center px-4 py-8 border-2 border-dashed border-gray-200 rounded-2xl text-gray-400 hover:text-rek-magenta transition-all bg-white"
                     >
-                      <ImageIcon className="w-10 h-10 mb-3 opacity-20" />
-                      <span className="font-semibold text-gray-600">Bild auswählen oder ablegen</span>
-                      <span className="text-xs mt-1 text-gray-400">JPG, PNG bis 5MB</span>
+                      <ImageIcon className="w-6 h-6 mr-3 opacity-20" />
+                      <span className="font-semibold text-gray-600 text-sm">Bild auswählen</span>
                     </motion.button>
                   </div>
                 ) : (
                   <div className="space-y-4">
                     <div className="relative rounded-2xl border border-gray-100 overflow-hidden bg-gray-50 max-h-48 flex items-center justify-center">
                       <img src={imageBase64} alt="Vorschau" className="max-h-48 object-contain" />
-                    </div>
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        value={imagePrompt}
-                        onChange={(e) => setImagePrompt(e.target.value)}
-                        placeholder="KI: Gesichter unkenntlich machen..."
-                        className="flex-1 px-4 py-2 text-sm rounded-xl border border-gray-200 outline-none focus:border-rek-gelb transition-colors"
-                      />
-                      <button
-                        type="button"
-                        onClick={handleEditImage}
-                        disabled={isEditingImage || !imagePrompt}
-                        className="px-4 py-2 bg-rek-gelb text-gray-900 rounded-xl text-sm font-bold disabled:opacity-50"
-                      >
-                        {isEditingImage ? <Loader2 className="w-4 h-4 animate-spin" /> : "Anwenden"}
-                      </button>
                     </div>
                   </div>
                 )}
@@ -320,7 +273,7 @@ export default function Form() {
               {submitStatus === "error" && (
 
                 <p className="text-center text-red-500 font-bold mt-4">
-                  Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.
+                  Ein Fehler ist aufgetreten. Bitte versuche es später erneut.
                 </p>
               )}
             </form>

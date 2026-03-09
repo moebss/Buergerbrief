@@ -5,19 +5,19 @@ const STEPS = [
     {
         icon: MessageSquare,
         title: "Du schreibst mir",
-        description: "Egal ob großes Problem oder kleine Sorge – schreib mir einfach, was dich gerade beschäftigt.",
+        description: "Du schreibst mir, was dich beschäftigt – egal ob groß oder klein.",
         color: "bg-rek-magenta/10 text-rek-magenta",
     },
     {
         icon: Eye,
         title: "Ich lese persönlich",
-        description: "Keine Filter, keine Umwege. Dein Brief landet direkt bei mir auf dem Schreibtisch. Versprochen.",
+        description: "Ich lese deinen Brief persönlich. Versprochen.",
         color: "bg-rek-gelb/10 text-rek-gelb",
     },
     {
         icon: Reply,
-        title: "Du bekommst Antwort",
-        description: "Ich antworte dir so schnell wie möglich – echt und ohne Politikerfloskeln.",
+        title: "Echte Antwort",
+        description: "Du bekommst eine echte Antwort von mir – kein Formschreiben.",
         color: "bg-rek-magenta/10 text-rek-magenta",
     },
 ];

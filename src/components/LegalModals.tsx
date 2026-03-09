@@ -115,9 +115,7 @@ export default function LegalModals({ activeModal, onClose }: LegalModalsProps) 
                             <ul className="list-disc pl-5 mb-6 space-y-1">
                                 <li>Name (Pflichtfeld)</li>
                                 <li>E-Mail-Adresse (Pflichtfeld)</li>
-                                <li>Wohnort in der Kommune</li>
-                                <li>Themenbereich</li>
-                                <li>Ihre Nachricht / Zusätzliche Infos</li>
+                                <li>Deine Nachricht / Was beschäftigt dich?</li>
                                 <li>Optional: Hochgeladene Bilder</li>
                             </ul>
 
@@ -161,7 +159,7 @@ export default function LegalModals({ activeModal, onClose }: LegalModalsProps) 
                                 alexander.rheindorf@fdp-rek.de
                             </p>
 
-                            <p className="text-sm text-gray-500 italic mt-8">Stand: Februar 2026</p>
+                            <p className="text-sm text-gray-500 italic mt-8">Stand: März 2026</p>
                         </>
                     )}
                 </div>

@@ -56,19 +56,12 @@ export default function Contact() {
                 Warum ich das mache?
               </h3>
               <p className="text-xl text-gray-600 leading-relaxed font-light mb-8">
-                Politik fühlt sich oft weit weg an – Akten, Sitzungen, lange Wege. Aber die echten Themen liegen vor unserer Haustür. Ich mache das hier, weil ich davon überzeugt bin, dass gute Politik nur funktioniert, wenn wir im Gespräch bleiben.
+                Politik fühlt sich oft weit weg an – Akten, Sitzungen, lange Wege. Aber die echten Themen liegen vor deiner Haustür. Ich mache das hier, weil ich davon überzeugt bin, dass gute Politik nur funktioniert, wenn wir im Gespräch bleiben.
               </p>
 
-              <div className="space-y-6 mb-8">
-                <div className="flex gap-4">
-                  <div className="w-1.5 h-auto bg-rek-gelb rounded-full" />
-                  <p className="text-gray-700 italic">
-                    "Zuletzt hat mich das Thema Schulwegsicherheit in einer unserer Kommunen sehr beschäftigt. Ein Vater hat mir geschrieben, wir haben uns das vor Ort angesehen und konnten im Kreistag erste Verbesserungen anstoßen."
-                  </p>
-                </div>
-
+              <div>
                 <p className="text-gray-600 leading-relaxed font-light">
-                  Ich bin fest davon überzeugt, dass positive Veränderungen durch einen <span className="font-semibold text-gray-900">direkten Dialog</span> entstehen. Deine Nachricht gibt mir die Argumente, die ich brauche, um im Kreistag für unsere Heimat zu kämpfen.
+                  Ich bin fest davon überzeugt, dass positive Veränderungen durch einen <span className="font-semibold text-gray-900">direkten Dialog</span> entstehen. Deine Nachricht hilft mir, im Kreistag für unsere Heimat die richtigen Fragen zu stellen.
                 </p>
               </div>
             </div>

@@ -25,8 +25,8 @@ export default function App() {
       <Form />
 
 
-      <FAQ />
       <Contact />
+      <FAQ />
 
       {/* Footer */}
       <footer className="bg-gray-900 pt-24 pb-12 text-gray-400 overflow-hidden relative">

@@ -29,7 +29,7 @@ export default function Hero() {
           <motion.h1
             className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-6 md:mb-8 leading-[1.05] md:leading-[1.1]"
           >
-            Ich möchte wissen, <br />
+            Ich möchte wissen,<br />
             <span className="text-rek-gelb drop-shadow-[0_0_15px_rgba(255,237,0,0.3)]">was dich bewegt.</span>
           </motion.h1>
 
@@ -39,7 +39,7 @@ export default function Hero() {
             transition={{ delay: 0.5, duration: 1 }}
             className="mt-4 md:mt-6 text-xl md:text-2xl text-gray-100/90 max-w-2xl mx-auto font-light leading-relaxed px-2 md:px-0"
           >
-            Nicht aus der Zeitung oder durch Dritte – sondern direkt von dir. Schreib mir, was dich beschäftigt, und lass uns gemeinsam an Lösungen arbeiten.
+            Nicht aus der Zeitung oder durch Dritte – sondern direkt von dir. Schreib mir, was dich beschäftigt. Ich höre zu und antworte dir persönlich.
           </motion.p>
 
           <div className="mt-10 md:mt-12 flex flex-col sm:flex-row gap-5 justify-center items-center">

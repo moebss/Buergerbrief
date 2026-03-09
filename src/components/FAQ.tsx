@@ -5,27 +5,27 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 const FAQS = [
     {
         q: "Liest du das wirklich selbst?",
-        a: "Ja, versprochen. Jede Nachricht landet ohne Umwege direkt bei mir. Keine Sekretariate, keine Filter. Ich möchte ungefiltert wissen, was die Menschen im Kreis beschäftigt.",
-    },
-    {
-        q: "Wann bekomme ich eine Antwort von dir?",
-        a: "Ich versuche, dir innerhalb weniger Werktage zu antworten. Manchmal dauert es bei komplexen Themen ein bisschen länger, aber ich melde mich auf jeden Fall bei dir.",
+        a: "Ja, versprochen. Jede Nachricht landet direkt bei mir. Ich möchte ungefiltert wissen, was dich bewegt.",
     },
     {
         q: "Was ist, wenn mein Anliegen sehr klein ist?",
-        a: "Es gibt kein zu kleines Anliegen. Oft sind es gerade die alltäglichen Dinge – eine kaputte Ampel, ein unsicherer Schulweg –, die den Unterschied machen. Schreib es mir einfach.",
+        a: "Es gibt kein zu kleines Anliegen. Oft sind es gerade die alltäglichen Dinge, die den Unterschied machen. Schreib es mir einfach.",
     },
     {
         q: "Ich kann mich nicht gut ausdrücken – ist das schlimm?",
-        a: "Überhaupt nicht. Mir geht es um den Inhalt, nicht um perfekte Formulierungen. Schreib einfach so, wie du es einem Freund erzählen würdest.",
+        a: "Überhaupt nicht. Mir geht es um den Inhalt, nicht um perfekte Sätze. Schreib einfach so, wie du es einem Freund erzählen würdest.",
+    },
+    {
+        q: "Wann bekomme ich eine Antwort?",
+        a: "Ich versuche, dir innerhalb weniger Tage zu antworten. Manchmal dauert es bei komplexen Themen etwas länger, aber ich melde mich auf jeden Fall bei dir.",
     },
     {
         q: "Was machst du mit dem, was ich schreibe?",
-        a: "Ich nehme dein Feedback mit in meine politische Arbeit. Manchmal kann ich direkt helfen, manchmal ist es ein wichtiger Hinweis für neue Anträge oder Diskussionen im Kreistag.",
+        a: "Ich nehme dein Feedback mit in meine Arbeit im Kreistag. Manchmal kann ich direkt helfen, manchmal ist es ein wichtiger Hinweis für neue Initiativen.",
     },
     {
         q: "Kann ich auch anonym schreiben?",
-        a: "Du kannst natürlich einen fiktiven Namen angeben, aber dann kann ich dir leider nicht antworten. Wenn du eine Rückmeldung möchtest, brauche ich deine E-Mail-Adresse.",
+        a: "Du kannst einen fiktiven Namen nutzen, aber dann kann ich dir nicht antworten. Wenn du eine Rückmeldung möchtest, brauche ich deine E-Mail-Adresse.",
     },
 ];
 
@@ -61,8 +61,8 @@ export default function FAQ() {
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
                             className={`rounded-3xl border transition-all duration-300 ${openIdx === idx
-                                    ? "bg-white border-rek-magenta/20 shadow-xl shadow-rek-magenta/5"
-                                    : "bg-gray-100/50 border-transparent hover:bg-white hover:border-gray-200"
+                                ? "bg-white border-rek-magenta/20 shadow-xl shadow-rek-magenta/5"
+                                : "bg-gray-100/50 border-transparent hover:bg-white hover:border-gray-200"
                                 }`}
                         >
                             <button
