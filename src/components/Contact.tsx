@@ -44,11 +44,16 @@ export default function Contact() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block px-4 py-1.5 mb-2 rounded-full bg-rek-magenta/10 border border-rek-magenta/20"
+              className="space-y-4 mb-2"
             >
-              <span className="text-sm font-bold tracking-widest text-rek-magenta uppercase">
-                Über mich
-              </span>
+              <div className="inline-block px-4 py-1.5 rounded-full bg-rek-magenta/10 border border-rek-magenta/20">
+                <span className="text-sm font-bold tracking-widest text-rek-magenta uppercase">
+                  Über mich
+                </span>
+              </div>
+              <p className="text-rek-magenta font-black tracking-tighter uppercase text-sm">
+                Kommunalpolitiker im Rhein-Erft-Kreis
+              </p>
             </motion.div>
 
             <div>
