@@ -86,6 +86,7 @@ export default function Form() {
         infos: formData.infos,
         // Web3Forms allows custom data fields
         attachment_base64: imageBase64 || "Kein Anhang",
+        botcheck: "", // Honeypot field (must be empty)
       };
 
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -158,6 +159,9 @@ export default function Form() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+              {/* Honeypot Spam Protection */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-sm font-bold text-gray-700 ml-1">Dein Name</label>
