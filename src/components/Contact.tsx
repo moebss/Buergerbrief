@@ -24,7 +24,7 @@ export default function Contact() {
               <img
                 src={`${import.meta.env.BASE_URL}alexander-rheindorf-new.jpg`}
                 alt="Alexander Rheindorf"
-                className="w-full h-full object-cover object-[center_20%] scale-125 hover:scale-150 transition-transform duration-700"
+                className="w-full h-full object-cover object-[center_15%] scale-150 hover:scale-[1.6] transition-transform duration-700"
               />
             </div>
             {/* Premium Decorative elements */}
