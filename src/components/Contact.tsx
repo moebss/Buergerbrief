@@ -44,16 +44,11 @@ export default function Contact() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="space-y-4 mb-2"
+              className="inline-block px-4 py-1.5 mb-2 rounded-full bg-rek-magenta/10 border border-rek-magenta/20"
             >
-              <div className="inline-block px-4 py-1.5 rounded-full bg-rek-magenta/10 border border-rek-magenta/20">
-                <span className="text-sm font-bold tracking-widest text-rek-magenta uppercase">
-                  Über mich
-                </span>
-              </div>
-              <p className="text-rek-magenta font-black tracking-tighter uppercase text-sm">
-                Kommunalpolitiker im Rhein-Erft-Kreis
-              </p>
+              <span className="text-sm font-bold tracking-widest text-rek-magenta uppercase">
+                Über mich
+              </span>
             </motion.div>
 
             <div>
@@ -66,7 +61,7 @@ export default function Contact() {
 
               <div>
                 <p className="text-gray-600 leading-relaxed font-light">
-                  Ich bin fest davon überzeugt, dass positive Veränderungen durch einen <span className="font-semibold text-gray-900">direkten Dialog</span> entstehen. Deine Nachricht hilft mir, im Kreistag für unsere Heimat die richtigen Fragen zu stellen.
+                  Als <span className="font-semibold text-gray-900">Kommunalpolitiker im Rhein-Erft-Kreis</span> setze ich mich mit Leidenschaft für unsere Heimat und die Menschen vor Ort ein. Ich bin fest davon überzeugt, dass positive Veränderungen durch einen <span className="font-semibold text-gray-900">direkten Dialog</span> entstehen. Deine Nachricht hilft mir, im Kreistag die richtigen Fragen zu stellen.
                 </p>
               </div>
             </div>
