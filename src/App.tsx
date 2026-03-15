@@ -42,7 +42,7 @@ export default function App() {
                 </span>
               </div>
               <p className="text-sm font-light leading-relaxed max-w-xs mx-auto md:mx-0">
-                Ein Projekt von Alexander Rheindorf für aktive Bürgerbeteiligung im Rhein-Erft-Kreis. Gestalte deine Heimat direkt mit.
+                Ein Projekt zur Bürgerbeteiligung
               </p>
             </div>
 

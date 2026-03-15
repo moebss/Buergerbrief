@@ -22,9 +22,9 @@ export default function Contact() {
           >
             <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.15)] bg-gray-100">
               <img
-                src={`${import.meta.env.BASE_URL}alexander-rheindorf.jpg`}
+                src={`${import.meta.env.BASE_URL}alexander-rheindorf-new.jpg`}
                 alt="Alexander Rheindorf"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
               />
             </div>
             {/* Premium Decorative elements */}
