@@ -61,7 +61,7 @@ export default function Contact() {
 
               <div>
                 <p className="text-gray-600 leading-relaxed font-light">
-                  Als <span className="font-semibold text-gray-900">Kommunalpolitiker im Rhein-Erft-Kreis</span> setze ich mich mit Leidenschaft für unsere Heimat und die Menschen vor Ort ein. Ich bin fest davon überzeugt, dass positive Veränderungen durch einen <span className="font-semibold text-gray-900">direkten Dialog</span> entstehen. Deine Nachricht hilft mir, im Kreistag die richtigen Fragen zu stellen.
+                  Als <span className="font-semibold text-gray-900">Kommunalpolitiker im Rhein-Erft-Kreis</span> setze ich mich mit Leidenschaft für unsere Heimat und die Menschen vor Ort ein. Ich bin fest davon überzeugt, dass positive Veränderungen durch einen <span className="font-semibold text-gray-900">direkten Dialog</span> entstehen. Deine Nachricht hilft mir, für Gremien neue Perspektiven zu gewinnen.
                 </p>
               </div>
             </div>
