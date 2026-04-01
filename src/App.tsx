@@ -78,8 +78,15 @@ export default function App() {
               &copy; {new Date().getFullYear()} Bürgerbrief Rhein-Erft-Kreis. Alle Rechte vorbehalten.
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-rek-gelb" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">Alexander Rheindorf</span>
+              <a href="https://rheindorf.digital" target="_blank" rel="noopener noreferrer" className="badge-rheindorf">
+                <span className="badge-rheindorf__inner">
+                  <span className="badge-rheindorf__text">
+                    <span className="badge-rheindorf__eyebrow">Made by</span>
+                    <span className="badge-rheindorf__name">rheindorf<span>.digital</span></span>
+                  </span>
+                </span>
+                <span className="badge-rheindorf__tip" />
+              </a>
             </div>
           </div>
         </div>
